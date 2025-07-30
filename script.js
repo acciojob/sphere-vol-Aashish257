@@ -4,11 +4,13 @@ function volume_sphere() {
 
 	const radiusValue = parseFloat(document.getElementById("radius").value);
 
-	if (radiusValue < 0 || isNaN(radiusValue)) {
-		return false;
-	}
+	let volume;
 
-	const volume = (4 / 3) * Math.PI * Math.pow(radiusValue, 3);
+	if (radiusValue < 0 || isNaN(radiusValue)) {
+		volume = NaN; // explicitly assign NaN
+	} else {
+		volume = (4 / 3) * Math.PI * Math.pow(radiusValue, 3);
+	}
 
 	document.getElementById("volume").value = volume.toFixed(4); 
 	return false;
